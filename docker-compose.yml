@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  backend:
+    build: .
+    volumes:
+      - .:/wordle
+    working_dir: /wordle
+    command: >
+      bash -c "git submodule update --init
+      && mkdir -p build
+      && cd build
+      && cmake ..
+      && make -j 12
+      && ./Wordle"
+
+  relay:
+    image: linhohoa/wordle_relay:latest
+    ports:
+      - "4000:4000"
+    depends_on:
+      - backend
+    command: ["./wait-for-it.sh", "--timeout=600", "backend:5000", "--", "./build/Wordle-Relay"]
+
+  front_end:
+    image: linhohoa/wordle_front:latest
+    ports:
+      - "80:8080"
+    depends_on:
+      - relay
+      - backend
