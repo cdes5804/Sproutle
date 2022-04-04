@@ -11,26 +11,23 @@
 
 #include "common/constant.hh"
 #include "dictionary/dictionary.hh"
+#include "json/json.hpp"
 #include "server/server.hh"
 #include "user_db/user_db.hh"
-#include "json/json.hpp"
 
 using json = nlohmann::json;
 
-void WriteTempJsonFile(const std::string &filename, const json &j) {
+void WriteTempJsonFile(const std::string& filename, const json& j) {
   std::ofstream o(filename);
   o << std::setw(4) << j << std::endl;
 }
 
-void CleanTempFile(const std::string &filename) {
-  std::remove(filename.c_str());
-}
+void CleanTempFile(const std::string& filename) { std::remove(filename.c_str()); }
 
 TEST_CASE("Test Connect") {
   const std::string answer_pool_path = "../../word_list/answer.json";
   const std::string allowed_guess_path = "../../word_list/guess.json";
-  auto dictionary =
-      std::make_unique<Dictionary>(answer_pool_path, allowed_guess_path);
+  auto dictionary = std::make_unique<Dictionary>(answer_pool_path, allowed_guess_path);
   auto user_db = std::make_unique<UserDB>();
   auto server = WordleServer(std::move(dictionary), std::move(user_db));
 
@@ -49,8 +46,7 @@ TEST_CASE("Test Invalid User") {
   const std::string allowed_guess_path = "TempAllowedGuess.json";
   WriteTempJsonFile(answer_pool_path, j);
   WriteTempJsonFile(allowed_guess_path, j2);
-  auto dictionary =
-      std::make_unique<Dictionary>(answer_pool_path, allowed_guess_path);
+  auto dictionary = std::make_unique<Dictionary>(answer_pool_path, allowed_guess_path);
   auto user_db = std::make_unique<UserDB>();
   auto server = WordleServer(std::move(dictionary), std::move(user_db));
 
@@ -75,8 +71,7 @@ TEST_CASE("Test Guess Invalid Word") {
   const std::string allowed_guess_path = "TempAllowedGuess.json";
   WriteTempJsonFile(answer_pool_path, j);
   WriteTempJsonFile(allowed_guess_path, j2);
-  auto dictionary =
-      std::make_unique<Dictionary>(answer_pool_path, allowed_guess_path);
+  auto dictionary = std::make_unique<Dictionary>(answer_pool_path, allowed_guess_path);
   auto user_db = std::make_unique<UserDB>();
   auto server = WordleServer(std::move(dictionary), std::move(user_db));
 
@@ -120,8 +115,7 @@ TEST_CASE("Test Guess Limit") {
   const std::string allowed_guess_path = "TempAllowedGuess.json";
   WriteTempJsonFile(answer_pool_path, j);
   WriteTempJsonFile(allowed_guess_path, j2);
-  auto dictionary =
-      std::make_unique<Dictionary>(answer_pool_path, allowed_guess_path);
+  auto dictionary = std::make_unique<Dictionary>(answer_pool_path, allowed_guess_path);
   auto user_db = std::make_unique<UserDB>();
   auto server = WordleServer(std::move(dictionary), std::move(user_db));
   const uint32_t guess_limit = 6;

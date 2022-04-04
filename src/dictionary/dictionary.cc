@@ -22,8 +22,7 @@ uint32_t Dictionary::GetCommonCharacterCount(char a[], char b[]) const {
 
   assert(a_length == WORD_LENGTH);
   assert(b_length == WORD_LENGTH);
-  assert(a_length == b_length &&
-         "GetCommonCharacterCount: Length of strings differ");
+  assert(a_length == b_length && "GetCommonCharacterCount: Length of strings differ");
   char s[WORD_LENGTH + 1];
   char t[WORD_LENGTH + 1];
 
@@ -50,8 +49,7 @@ uint32_t Dictionary::GetCommonCharacterCount(char a[], char b[]) const {
   return common_count;
 }
 
-Dictionary::Dictionary(const std::string &answer_pool_file_path,
-                       const std::string &allowed_guesses_file_path,
+Dictionary::Dictionary(const std::string& answer_pool_file_path, const std::string& allowed_guesses_file_path,
                        uint32_t maximum_common_characters_allowed)
     : maximum_common_characters_allowed_(maximum_common_characters_allowed) {
   // read word list from json file
@@ -64,18 +62,16 @@ Dictionary::Dictionary(const std::string &answer_pool_file_path,
   json j;
   answer_pool_file >> j;
   answer_pool_size_ = 0;
-  for (const auto &word : j) {
-    strncpy(answer_pool_[answer_pool_size_],
-            static_cast<std::string>(word).c_str(), WORD_LENGTH + 1);
+  for (const auto& word : j) {
+    strncpy(answer_pool_[answer_pool_size_], static_cast<std::string>(word).c_str(), WORD_LENGTH + 1);
     answer_pool_size_++;
   }
 
   json j2;
   allowed_guesses_file >> j2;
   allowed_guesses_size_ = 0;
-  for (const auto &word : j2) {
-    strncpy(allowed_guesses_[allowed_guesses_size_],
-            static_cast<std::string>(word).c_str(), WORD_LENGTH + 1);
+  for (const auto& word : j2) {
+    strncpy(allowed_guesses_[allowed_guesses_size_], static_cast<std::string>(word).c_str(), WORD_LENGTH + 1);
     allowed_guesses_size_++;
   }
 }

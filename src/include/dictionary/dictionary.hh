@@ -11,7 +11,7 @@
 const uint32_t MAX_WORD_LIST_LENGTH = 12000;
 
 class Dictionary {
-private:
+ private:
   char last_returned_word_[WORD_LENGTH + 1] = {};
   uint32_t answer_pool_size_ = 0;
   uint32_t allowed_guesses_size_ = 0;
@@ -21,9 +21,8 @@ private:
   std::mutex mu_;
   uint32_t GetCommonCharacterCount(char a[], char b[]) const;
 
-public:
-  explicit Dictionary(const std::string &answer_pool_file_path,
-                      const std::string &allowed_guesses_file_path,
+ public:
+  explicit Dictionary(const std::string& answer_pool_file_path, const std::string& allowed_guesses_file_path,
                       uint32_t maximum_common_characters_allowed = 2);
 
   /**

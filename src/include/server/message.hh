@@ -22,8 +22,8 @@ enum class ReplyStatus {
   LOST,
 };
 
-MSGPACK_ADD_ENUM(GuessResult); // NOLINT
-MSGPACK_ADD_ENUM(ReplyStatus); // NOLINT
+MSGPACK_ADD_ENUM(GuessResult);  // NOLINT
+MSGPACK_ADD_ENUM(ReplyStatus);  // NOLINT
 
 /**
  * user_id: Unique identifier to identify the user making the request
@@ -32,7 +32,7 @@ MSGPACK_ADD_ENUM(ReplyStatus); // NOLINT
 struct GuessArgs {
   UserId user_id_;
   char guess_[WORD_LENGTH + 1];
-  MSGPACK_DEFINE_ARRAY(user_id_, guess_); // NOLINT
+  MSGPACK_DEFINE_ARRAY(user_id_, guess_);  // NOLINT
 };
 
 /**
@@ -48,7 +48,7 @@ struct GuessReply {
 struct RpcReply {
   ReplyStatus reply_status_;
   std::vector<GuessResult> guess_results_;
-  MSGPACK_DEFINE_ARRAY(reply_status_, guess_results_); // NOLINT
+  MSGPACK_DEFINE_ARRAY(reply_status_, guess_results_);  // NOLINT
 };
 
 #endif

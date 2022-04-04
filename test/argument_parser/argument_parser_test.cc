@@ -19,7 +19,7 @@ TEST_CASE("Test Argument Parser") {
                                    "--arg7", "-3.14159"};
   // clang-format on
   int argc = static_cast<int>(args.size());
-  char **argv = new char *[argc];
+  char** argv = new char*[argc];
   for (size_t i = 0; i < argc; i++) {
     argv[i] = new char[args[i].length() + 1];
     strncpy(argv[i], args[i].c_str(), args[i].length() + 1);
@@ -28,10 +28,8 @@ TEST_CASE("Test Argument Parser") {
   ArgumentParser parser(argc, argv);
 
   SECTION("Test Parse String") {
-    REQUIRE(parser.ParseArgument<std::string>("arg1") ==
-            "../path/to/random/file");
-    REQUIRE(parser.ParseArgument<std::string>("argX", "not found") ==
-            "not found");
+    REQUIRE(parser.ParseArgument<std::string>("arg1") == "../path/to/random/file");
+    REQUIRE(parser.ParseArgument<std::string>("argX", "not found") == "not found");
     REQUIRE(parser.ParseArgument<std::string>("argX").empty());
   }
 

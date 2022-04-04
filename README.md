@@ -230,7 +230,7 @@ Server 本身需要提供兩個 function：
 **禁止抄襲**：每一行 code 的每一個字都必須是自己寫的，且你寫的 code 必須代表你自己的想法。被抓到抄襲者，大作業 0 分並交由 PM 裁定懲罰。同學彼此之間可以討論想法，但是**禁止將自己的 code 讓對方看到！！！！**
 
 ### 繳交 <a name="submission"></a>
-請同學建立一個名為 `Sproutle` 的資料夾後把以下檔案複製過去：
+請同學建立一個名為 `sprout_project_1` 的資料夾後把以下檔案複製過去：
 * `src/dictionary/dictionary.cc`
 * `src/include/dictionary/dictionary.hh`
 * `src/user_db/user_db.cc`
@@ -238,7 +238,7 @@ Server 本身需要提供兩個 function：
 * `src/server/server.cc`
 * `src/include/server/server.hh`
 
-之後將這個資料夾**壓縮為 zip 檔**後上傳到 https://forms.gle/DJTn7yJ4cM7TuKNZ7 。如果打包內容或格式不合者，**最終成績打 9 折**。
+之後將這個資料夾**壓縮為 zip 檔**並命名為 `sprout_project_1.zip` 後上傳到 https://forms.gle/DJTn7yJ4cM7TuKNZ7 。如果打包內容或格式不合者，**最終成績打 9 折**。
 
 ## 成品 <a name="product"></a>
 

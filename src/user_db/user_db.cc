@@ -42,8 +42,7 @@ int32_t UserDB::GetUserGuessCount(const UserId user_id) {
   return -1;
 }
 
-void UserDB::SetUserGuessCount(const UserId user_id,
-                               const int32_t guess_count) {
+void UserDB::SetUserGuessCount(const UserId user_id, const int32_t guess_count) {
   /* Do not remove the following line */
   std::scoped_lock lock(mu_);
 

@@ -7,12 +7,12 @@
 #include <vector>
 
 class ArgumentParser {
-private:
+ private:
   uint32_t argc_;
   std::vector<std::string> argv_;
 
-public:
-  ArgumentParser(int argc, char *argv[]);
+ public:
+  ArgumentParser(int argc, char* argv[]);
 
   /**
    * Process the command line argument to find the value for a given flag and
@@ -24,7 +24,7 @@ public:
    * `default_value`
    */
   template <typename T>
-  T ParseArgument(const std::string &flag, const T &default_value = T()) {
+  T ParseArgument(const std::string& flag, const T& default_value = T()) {
     const std::string full_flag = "--" + flag;
     for (uint32_t i = 1; i < argc_ - 1; i++) {
       if (full_flag == argv_[i]) {
@@ -37,12 +37,10 @@ public:
 
 /** std::string specification for ParseArgument. */
 template <>
-std::string ArgumentParser::ParseArgument(const std::string &flag,
-                                          const std::string &default_value);
+std::string ArgumentParser::ParseArgument(const std::string& flag, const std::string& default_value);
 
 /** bool specification for ParseArgument. */
 template <>
-bool ArgumentParser::ParseArgument(const std::string &flag,
-                                   const bool &default_value);
+bool ArgumentParser::ParseArgument(const std::string& flag, const bool& default_value);
 
 #endif

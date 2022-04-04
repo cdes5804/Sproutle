@@ -14,11 +14,9 @@
 
 std::string GenRandomString(const uint32_t length) {
   static const std::vector<char> alphanum = {
-      'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-      'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-      'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-      '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+      'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+      'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
+      'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
   std::string tmp_s;
   tmp_s.reserve(length);
 
@@ -53,8 +51,7 @@ TEST_CASE("Test Get User Answer") {
     max_user_id = i == 0 ? user_id : std::max(max_user_id, user_id);
   }
 
-  user_ids.resize(std::unique(std::begin(user_ids), std::end(user_ids)) -
-                  std::begin(user_ids));
+  user_ids.resize(std::unique(std::begin(user_ids), std::end(user_ids)) - std::begin(user_ids));
   REQUIRE(user_ids.size() == MAX_USER_NUM);
 
   char answer[WORD_LENGTH + 1];

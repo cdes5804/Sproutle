@@ -5,8 +5,7 @@
 #include "common/string_utils.hh"
 #include "server/server.hh"
 
-WordleServer::WordleServer(std::unique_ptr<Dictionary> dictionary,
-                           std::unique_ptr<UserDB> user_db)
+WordleServer::WordleServer(std::unique_ptr<Dictionary> dictionary, std::unique_ptr<UserDB> user_db)
     : dictionary_(std::move(dictionary)), user_db_(std::move(user_db)) {}
 
 UserId WordleServer::Connect() {
@@ -23,7 +22,7 @@ UserId WordleServer::Connect() {
   return 0;
 }
 
-void WordleServer::Guess(const GuessArgs &args, GuessReply *reply) {
+void WordleServer::Guess(const GuessArgs& args, GuessReply* reply) {
   /* Do not remove the following line */
   std::scoped_lock lock(mu_);
 
@@ -42,12 +41,12 @@ void WordleServer::Guess(const GuessArgs &args, GuessReply *reply) {
 void WordleServer::Run(const uint16_t port, const uint32_t thread_num) {
   server_ = std::make_unique<rpc::server>(port);
 
-  server_->bind("Guess", [&](const GuessArgs &args) {
+  server_->bind("Guess", [&](const GuessArgs& args) {
     GuessReply reply;
     Guess(args, &reply);
     RpcReply rpc_reply;
     rpc_reply.reply_status_ = reply.reply_status_;
-    for (auto &guess_result : reply.guess_results_) {
+    for (auto& guess_result : reply.guess_results_) {
       rpc_reply.guess_results_.emplace_back(guess_result);
     }
     return rpc_reply;
@@ -55,9 +54,8 @@ void WordleServer::Run(const uint16_t port, const uint32_t thread_num) {
   server_->bind("Connect", [&]() { return Connect(); });
 
   server_->async_run(thread_num);
-  std::cerr << "Wordle running on port " << port << " with " << thread_num
-            << " threads.\n";
+  std::cerr << "Wordle running on port " << port << " with " << thread_num << " threads.\n";
 
   while (true) {
-  } // run forever
+  }  // run forever
 }

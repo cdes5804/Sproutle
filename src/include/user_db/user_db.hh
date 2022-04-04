@@ -14,11 +14,11 @@ struct UserInfo {
 };
 
 class UserDB {
-private:
+ private:
   UserInfo users_[MAX_USER_NUM];
   std::mutex mu_;
 
-public:
+ public:
   /**
    * Create a new user, set the answer for the user, and assign a unique user id
    * to it.
