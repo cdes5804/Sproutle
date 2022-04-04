@@ -227,6 +227,8 @@ Server 本身需要提供兩個 function：
 
 雖然 coding style 沒有標準答案，每個人有不同習慣，但為了評分的標準這次講師設定了一個希望大家遵守的 style，例如 function 名稱使用 big camel case、變數用底線等等。偶爾執行 `make format` 來自動美化程式碼也可以避免一些 coding style 會被檢查出問題的情況。
 
+**禁止抄襲**：每一行 code 的每一個字都必須是自己寫的，且你寫的 code 必須代表你自己的想法。被抓到抄襲者，大作業 0 分並交由 PM 裁定懲罰。同學彼此之間可以討論想法，但是**禁止將自己的 code 讓對方看到！！！！**
+
 ### 繳交 <a name="submission"></a>
 請同學建立一個名為 `Sproutle` 的資料夾後把以下檔案複製過去：
 * `src/dictionary/dictionary.cc`
