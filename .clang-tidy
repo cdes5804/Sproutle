@@ -40,6 +40,7 @@ Checks:     '
             -clang-diagnostic-implicit-int-float-conversion,
             -modernize-use-auto,
             -modernize-use-trailing-return-type,
+            -modernize-loop-convert,
             -readability-convert-member-functions-to-static,
             -readability-make-member-function-const,
             -readability-qualified-auto,

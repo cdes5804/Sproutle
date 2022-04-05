@@ -7,6 +7,7 @@ services:
     working_dir: /wordle
     command: >
       bash -c "git submodule update --init
+      && rm -rf build
       && mkdir -p build
       && cd build
       && cmake ..
