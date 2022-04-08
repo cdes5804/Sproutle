@@ -37,6 +37,7 @@ Wordle 的規則相信同學都已經清楚，不熟悉的同學可以點上面�
 
 打開上面提到的 powershell/terminal 之後，請輸入
 1. `cd Desktop` (跳轉到桌面)
+(1.5. 使用 Windows 的同學) `git config --global core.autocrlf false`
 2. `git clone https://github.com/cdes5804/Sproutle.git` （下載 code）
 
 現在在桌面應該可以看到 Sproutle 的 code 了。
@@ -239,6 +240,8 @@ Server 本身需要提供兩個 function：
 * `src/include/server/server.hh`
 
 之後將這個資料夾**壓縮為 zip 檔**並命名為 `sprout_project_1.zip` 後上傳到 https://forms.gle/DJTn7yJ4cM7TuKNZ7 。如果打包內容或格式不合者，**最終成績打 9 折**。
+
+繳交期限為 **2022/4/30 23:59**，遲交者**最終分數打 8 折**。
 
 ## 成品 <a name="product"></a>
 
