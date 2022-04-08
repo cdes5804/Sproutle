@@ -37,8 +37,8 @@ Wordle 的規則相信同學都已經清楚，不熟悉的同學可以點上面�
 
 打開上面提到的 powershell/terminal 之後，請輸入
 1. `cd Desktop` (跳轉到桌面)
-(1.5. 使用 Windows 的同學) `git config --global core.autocrlf false`
-2. `git clone https://github.com/cdes5804/Sproutle.git` （下載 code）
+2. （使用 Windows 的同學) `git config --global core.autocrlf false`
+3. `git clone https://github.com/cdes5804/Sproutle.git` （下載 code）
 
 現在在桌面應該可以看到 Sproutle 的 code 了。
 
